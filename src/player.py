@@ -7,9 +7,6 @@ class Player:
         self.room = room
         self.items = items
 
-    def __str__(self):
-        return f'Hello, {self.name} you are in {self.room}'
-
     def get(self, item):
         self.items.append(item)
         self.get(item)
@@ -17,5 +14,9 @@ class Player:
     def drop(self, item):
         self.items.remove(item)
         self.drop(item)
+
+    def __str__(self):
+        return f'Hello, {self.name} you are in {self.room}'
+
     
     

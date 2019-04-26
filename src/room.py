@@ -10,11 +10,11 @@ class Room:
     def __str__(self):
         return f'{self.name} {self.description}'
 
-    def drop(self, item):
-        self.items.remove(item)
-
     def get(self, item):
         self.items.append(item)
+
+    def drop(self, item):
+        self.items.remove(item)
     
 
 

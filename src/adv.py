@@ -45,8 +45,9 @@ print('\nHello there! Thanks for stopping by.\nHere is some helpful information:
 print('\n* Remember to explore the game by entering one of the following:\n\n[N] to go North\n\n[S] to go South\n\n[E] to go East\n\n[W] to go West\n\n[Q] to quit the game.\n')
 print('\n* If there is an item in the room you are in, simply input:\n\n[GET] to take the item\n\n[DROP] to drop the item.\n')
 new_player = input('What is your name? Please enter it here:\n')
-player = Player(new_player, room['outside'], None)
+player = Player(new_player, room['outside'])
 print(f'\nWelcome to this game! Thanks for being here, {player.name}!\n')
+print(player.items)
 
 def current_room(player):
     print(f'{player.name} you are currently in the {player.room}\n')
@@ -87,10 +88,11 @@ while playerInput != 'Q':
         break
     elif playerInput == "GET":
         player.items.append(playerInput)
-        print(f'Awesome, {player.name}! You picked up a {playerInput}.\n')
+        print(f'Awesome, {player.name}! You picked up a {player.room.items}.\n')
     elif playerInput == "DROP":
         player.items.remove(playerInput)
-        print(f'Look at that, {player.name}! You just dropped the {playerInput}.\n')
+        print(f'Look at that, {player.name}! You just dropped the {player.room.items}.\n')
+        
 
 
 # Write a loop that:
